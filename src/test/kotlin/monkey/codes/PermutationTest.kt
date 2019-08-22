@@ -15,7 +15,6 @@ class PermutationTest {
     fun `it should generate permutations`(){
         val range = (1..3)
         val allPermutations = range.toList().permutations()
-        println(allPermutations)
         assert(allPermutations).all {
             hasSize(factorial(range.last))
             containsAll(
@@ -30,10 +29,23 @@ class PermutationTest {
     }
 
     @Test
+    fun `an empty list should have zero permutations`(){
+        val allPermutations = emptyList<Int>().toList().permutations()
+        assert(allPermutations).hasSize(0)
+    }
+
+
+    @Test
+    fun `a list with 1 item should have 1 permutation`(){
+        val allPermutations = listOf(1).toList().permutations()
+        assert(allPermutations).hasSize(1)
+    }
+
+    @Test
     fun `it should stop generating permutations once a match is found`(){
         val range = (1..3)
         var found = false
-        val match = range.toList().permutations{
+        val match = range.toList().searchPermutations{
             assert(found).isFalse()
             found = it.equals(listOf(1,2,3))
             found

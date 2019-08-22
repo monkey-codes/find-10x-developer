@@ -1,16 +1,15 @@
 package monkey.codes
 
-
 fun Int.isEven() = this % 2 == 0
 fun Int.isOdd() = !isEven()
 
 fun <E> List<E>.permutations(): List<List<E>> =
     mutableListOf<List<E>>().let { accumulator ->
-        permutations { accumulator.add(it.toList()) ; false}
+        searchPermutations { accumulator.add(it.toList()) ; false}
         accumulator
     }
 
-fun <E> List<E>.permutations(predicate:(List<E>) -> Boolean): List<E>? {
+fun <E> List<E>.searchPermutations(predicate:(List<E>) -> Boolean): List<E>? {
     val  list = this.toMutableList()
     fun swap(position1: Int, position2: Int) {
         val tmp = list[position1]
