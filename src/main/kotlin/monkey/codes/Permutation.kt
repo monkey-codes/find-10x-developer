@@ -11,6 +11,7 @@ fun <E> List<E>.permutations(): List<List<E>> =
 
 fun <E> List<E>.searchPermutations(predicate:(List<E>) -> Boolean): List<E>? {
     val  list = this.toMutableList()
+
     fun swap(position1: Int, position2: Int) {
         val tmp = list[position1]
         list[position1] = list[position2]

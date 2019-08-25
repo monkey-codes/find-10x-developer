@@ -77,7 +77,7 @@ class DeveloperRankerTest {
 }
 
 fun <E> Assert<Ranking<E>>.matchesRanking(
-   vararg order: E
+    vararg order: E
 ) {
     prop(Ranking<String>::order).containsExactly(*order)
     prop(Ranking<E>::tenXDeveloper).isEqualTo(order[0])
