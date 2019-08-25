@@ -105,7 +105,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>monkey.codes.Main</mainClass>
+                            <mainClass>tenxdeveloper.Main</mainClass>
                         </manifest>
                     </archive>
                     <finalName>find-10x-developer</finalName>

@@ -1,4 +1,4 @@
-package monkey.codes
+package tenxdeveloper
 
 import org.junit.jupiter.api.Test
 

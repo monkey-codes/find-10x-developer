@@ -1,4 +1,4 @@
-package monkey.codes
+package tenxdeveloper
 
 fun Int.isEven() = this % 2 == 0
 fun Int.isOdd() = !isEven()

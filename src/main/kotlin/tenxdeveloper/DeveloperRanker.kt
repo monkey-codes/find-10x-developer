@@ -1,4 +1,4 @@
-package monkey.codes
+package tenxdeveloper
 
 interface PredicateBuilder<E> {
     fun developer(item: E, developerPredicates: DeveloperPredicateBuilder<E>.() -> Predicate<E>): Predicate<E>

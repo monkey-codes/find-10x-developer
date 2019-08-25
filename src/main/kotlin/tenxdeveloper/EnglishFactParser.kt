@@ -1,4 +1,4 @@
-package monkey.codes
+package tenxdeveloper
 
 
 class EnglishFactParser {
@@ -25,7 +25,7 @@ class EnglishFactParser {
             { developer(name1) { isBetterThan(name2) } }
         },
         FactParser("""(\w+) is not directly below or above (\w+) as a developer""") { (name1, name2) ->
-            { developer(name1) { isNot(directlyBelow(name2), or, directlyAbove( name2)) } }
+            { developer(name1) { isNot(directlyBelow(name2), or, directlyAbove(name2)) } }
         }
     )
 
