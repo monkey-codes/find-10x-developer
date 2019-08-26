@@ -1,14 +1,19 @@
 #!/bin/sh -e
 
-./mvnw clean verify
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
 
-tee target/input.txt <<EOF
-Jessie is not the best developer
-Evan is not the worst developer
-John is not the best developer or the worst developer
-Sarah is a better developer than Evan
-Matt is not directly below or above John as a developer
-John is not directly below or above Evan as a developer
-EOF
+if ! hash docker; then
+    echo "docker not found: please install docker and run again"
+    exit 1
+fi
 
-java -jar target/find-10x-developer.jar "$(pwd)/target/input.txt"
+docker pull monkeycodes/find-10x-developer:1.0
+
+
+echo "${CYAN}"
+cat src/test/resources/input.txt
+echo "${GREEN}"
+docker run --rm -v $(pwd)/src/test/resources/input.txt:/input.txt monkeycodes/find-10x-developer:1.0 input.txt
+echo "${NC}"

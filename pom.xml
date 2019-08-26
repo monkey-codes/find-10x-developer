@@ -5,10 +5,10 @@
 
     <groupId>monkey.codes</groupId>
     <artifactId>find-10x-developer</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>monkey.codes find-10x-developer</name>
+    <name>find-10x-developer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -123,4 +123,34 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                        <version>1.4.12</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <goals>
+                                    <goal>build</goal>
+                                    <goal>push</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <googleContainerRegistryEnabled>false</googleContainerRegistryEnabled>
+                            <repository>monkeycodes/find-10x-developer</repository>
+                            <tag>${project.version}</tag>
+                            <verbose>true</verbose>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
